@@ -1,8 +1,12 @@
 package gen
 
 import (
+	"bufio"
+	"errors"
 	"fmt"
 	"log"
+	"os"
+	"strings"
 
 	. "github.com/dave/jennifer/jen"
 )
@@ -43,10 +47,19 @@ var (
 
 type PrimitivesGenerator struct{}
 
-func (g *PrimitivesGenerator) Run() error {
+func (g *PrimitivesGenerator) Run(args []string) error {
+	originFilePath := args[0]
+
+	moduleName, err := g.getModuleName(originFilePath)
+	if err != nil {
+		return err
+	}
+
+	log.Printf("Module name: %s", moduleName)
+
 	for _, typeName := range AvailableTypes {
 
-		f := NewFile("main")
+		f := NewFile(moduleName)
 		g.generateInfrastructure(f, typeName)
 		generateFirstOrDefault(f, typeName)
 		generateFirst(f, typeName)
@@ -70,6 +83,30 @@ func (g *PrimitivesGenerator) Run() error {
 	}
 
 	return nil
+}
+
+func (g *PrimitivesGenerator) getModuleName(originFilePath string) (string, error) {
+	f, err := os.Open(originFilePath)
+	if err != nil {
+		return "", err
+	}
+	defer f.Close()
+
+	firstLine := ""
+	sc := bufio.NewScanner(f)
+	for sc.Scan() {
+		if strings.HasPrefix(sc.Text(), "package") {
+			firstLine = sc.Text()
+			break
+		}
+	}
+
+	if len(firstLine) == 0 {
+		return "", errors.New("Package name not found in the specified file")
+	}
+
+	firstLineSplitted := strings.Split(firstLine, " ")
+	return firstLineSplitted[len(firstLineSplitted)-1], nil
 }
 
 func (g *PrimitivesGenerator) generateInfrastructure(f *File, typeName string) {

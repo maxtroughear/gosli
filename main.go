@@ -17,7 +17,7 @@ func main() {
 
 	if os.Args[1] == primitivesRunner {
 		primitivesGen := &gen.PrimitivesGenerator{}
-		err = primitivesGen.Run()
+		err = primitivesGen.Run(os.Args[1:])
 	} else {
 		customGenerator := &gen.CustomGenerator{}
 		err = customGenerator.Run(os.Args[1:])
