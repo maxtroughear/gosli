@@ -1,9 +1,10 @@
 package main
 
 import (
+	"testing"
+
 	gomock "github.com/golang/mock/gomock"
 	suite "github.com/stretchr/testify/suite"
-	"testing"
 )
 
 type IntTestSuite struct {
