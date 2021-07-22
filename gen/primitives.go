@@ -48,12 +48,10 @@ var (
 type PrimitivesGenerator struct{}
 
 func (g *PrimitivesGenerator) Run(args []string) error {
-	originFilePath := args[0]
-
-	moduleName, err := g.getModuleName(originFilePath)
-	if err != nil {
-		return err
+	if len(args) < 2 {
+		return errors.New("Wrong amount of arguments")
 	}
+	moduleName := args[1]
 
 	log.Printf("Module name: %s", moduleName)
 
