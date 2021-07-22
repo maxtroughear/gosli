@@ -1,4 +1,4 @@
-module github.com/doctornick42/gosli
+module github.com/maxtroughear/gosli
 
 go 1.16
 

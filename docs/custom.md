@@ -2,7 +2,7 @@
 
 Ok, let's start. We need to get gosli and to install it to our GOPATH/bin folder. All we need to do is run:
 ```
-go get github.com/doctornick42/gosli
+go get github.com/maxtroughear/gosli
 ```
 
 Then, for example we have a file in our project `example/faketype.go`. And it contains a structure called `FakeType`.
@@ -393,4 +393,4 @@ Let's look on the methods list. I will describe the methods of `FakeTypePSlice` 
     //} 
     ```
 
-#### If the description looks unclear for you, please take a look at [`experiment` folder](https://github.com/doctornick42/gosli/tree/master/experiment). You can find there unit test, benchmarks and some generated code that could describe the essent of the library much better than my poor English :)
+#### If the description looks unclear for you, please take a look at [`experiment` folder](https://github.com/maxtroughear/gosli/tree/master/experiment). You can find there unit test, benchmarks and some generated code that could describe the essent of the library much better than my poor English :)

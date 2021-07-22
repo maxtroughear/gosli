@@ -154,7 +154,7 @@ func (g *CustomGenerator) generateEqualImplementation(f *File, typeName string) 
 		Params(Id("r").Id(typeName)).
 		Id("Equal").
 		Params(
-			Id("another").Qual("github.com/doctornick42/gosli/lib", "Equaler"),
+			Id("another").Qual("github.com/maxtroughear/gosli/lib", "Equaler"),
 		).
 		Params(
 			Bool(),
@@ -184,7 +184,7 @@ func (g *CustomGenerator) generateSliceToEqualers(f *File, typeName string) {
 		).
 		Id("sliceToEqualers").
 		Params().
-		Index().Qual("github.com/doctornick42/gosli/lib", "Equaler").
+		Index().Qual("github.com/maxtroughear/gosli/lib", "Equaler").
 		Block(
 			Id("equalerSl").Op(":=").Make(Id("[]lib.Equaler"), Len(Id("r"))),
 
@@ -222,7 +222,7 @@ func (g *CustomGenerator) generateContains(f *File, typeName string) {
 		Block(
 			Id("equalerSl").Op(":=").Id("r.sliceToEqualers").Call(),
 			Return(
-				Qual("github.com/doctornick42/gosli/lib", "Contains").
+				Qual("github.com/maxtroughear/gosli/lib", "Contains").
 					Call(Id("equalerSl"), Id(elArg)),
 			),
 		)
@@ -245,10 +245,10 @@ func (g *CustomGenerator) generateProcessSliceOperation(f *File, typeName string
 		Params(
 			Id("sl2").Id(structName),
 			Id("f").Func().Params(
-				Index().Qual("github.com/doctornick42/gosli/lib", "Equaler"),
-				Index().Qual("github.com/doctornick42/gosli/lib", "Equaler"),
+				Index().Qual("github.com/maxtroughear/gosli/lib", "Equaler"),
+				Index().Qual("github.com/maxtroughear/gosli/lib", "Equaler"),
 			).Params(
-				Index().Qual("github.com/doctornick42/gosli/lib", "Equaler"),
+				Index().Qual("github.com/maxtroughear/gosli/lib", "Equaler"),
 				Error(),
 			),
 		).
@@ -300,7 +300,7 @@ func (g *CustomGenerator) generateGetUnion(f *File, typeName string) {
 			Return(
 				Id("r.processSliceOperation").Call(
 					Id("sl2"),
-					Qual("github.com/doctornick42/gosli/lib", "GetUnion"),
+					Qual("github.com/maxtroughear/gosli/lib", "GetUnion"),
 				),
 			),
 		)
@@ -324,7 +324,7 @@ func (g *CustomGenerator) generateInFirstOnly(f *File, typeName string) {
 			Return(
 				Id("r.processSliceOperation").Call(
 					Id("sl2"),
-					Qual("github.com/doctornick42/gosli/lib", "InFirstOnly"),
+					Qual("github.com/maxtroughear/gosli/lib", "InFirstOnly"),
 				),
 			),
 		)

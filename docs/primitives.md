@@ -2,7 +2,7 @@
 
 We need to get gosli. All we need to do is run:
 ```
-go get github.com/doctornick42/gosli
+go get github.com/maxtroughear/gosli
 ```
 For all basic types we got a structure representing a slice of it. For example, slice of `int64` is wrapped
 into `Int64Slice` structure. All methods are the same for all primitive types, so on this page
@@ -167,4 +167,4 @@ there's an example of interacting with `Int64Slice` but the idea will be exactly
     //res = []int64{1} 
     ```
 
-#### If the description looks unclear for you, please take a look at [unit tests for Int64Slice type](https://github.com/doctornick42/gosli/tree/master/int64_test.go).
+#### If the description looks unclear for you, please take a look at [unit tests for Int64Slice type](https://github.com/maxtroughear/gosli/tree/master/int64_test.go).

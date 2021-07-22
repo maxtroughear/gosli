@@ -2,7 +2,7 @@ package experiment
 
 import (
 	"errors"
-	lib "github.com/doctornick42/gosli/lib"
+	lib "github.com/maxtroughear/gosli/lib"
 )
 
 type FakeTypeSlice []FakeType

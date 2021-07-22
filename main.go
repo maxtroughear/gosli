@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/doctornick42/gosli/gen"
+	"github.com/maxtroughear/gosli/gen"
 )
 
 const (

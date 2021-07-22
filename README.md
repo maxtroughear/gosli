@@ -1,5 +1,7 @@
 # gosli
 
+[Originally created by Dmitry Bogomolov](https://github.com/doctornick42/gosli)
+
 The goal of this library is to make easier to work with slices in Go. It was inspired by .NET LINQ query language.
 
 Since Go doesn't have generic methods, sometimes it's hard to choose a nice-looking way to find some element in a slice or how to filter it. It's pretty easy to use `for` loop for it, but we can face with a compromise between the DRY (Don't Repeat Yourself) principle and using `interface{}` (the thing that I try to avoid if possible as a big fan of strong typing).
